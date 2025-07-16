@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employer Dashboard - WORQLY</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      padding-top: 70px;
+      padding-bottom: 70px;
+      background-color: #f8f9fa;
+    }
+    .navbar {
+      background-color: #001f3f;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+    }
+    .nav-link:hover {
+      color: #f0f0f0 !important;
+    }
+    footer {
+      background-color: #001f3f;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+/* ✅ Offcanvas Custom Styling */
+    .offcanvas-custom {
+      background: #f8f9fa;
+    }
+
+    .accordion-button {
+      background-color: #e9ecef;
+      font-weight: 500;
+    }
+
+    .list-group-item a {
+      transition: all 0.2s ease-in-out;
+      display: block;
+      padding: 5px;
+    }
+
+    .list-group-item a:hover {
+      background-color: #e2e6ea;
+      border-radius: 5px;
+      padding-left: 10px;
+    }
+
+    .list-group-item i {
+      color: #0d6efd;
+    }
+
+    @media (max-width: 768px) {
+      .offcanvas-body {
+        padding: 0.5rem;
+      }
+    }
+
+    .profile-card {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .profile-image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #001f3f;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ✅ Navigation Bar -->
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark px-4" style="background-color: #001f3f;">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold fs-4" href="#">WORQLY</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav gap-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dashboard
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+            <li><a class="dropdown-item" href="employerd.html">Employer</a></li>
+            <li><a class="dropdown-item" href="candidated.html">Candidate</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+        <li class="nav-item">
+          <button class="btn btn-outline-light btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#moreMenu" aria-controls="moreMenu">
+            More
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ✅ Enhanced Offcanvas Menu -->
+<div class="offcanvas offcanvas-start offcanvas-custom" tabindex="-1" id="moreMenu" aria-labelledby="moreMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="moreMenuLabel">More Options</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <div class="accordion" id="offcanvasAccordion">
+
+      <!-- General -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingGeneral">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGeneral" aria-expanded="true">
+            📋 General
+          </button>
+        </h2>
+        <div id="collapseGeneral" class="accordion-collapse collapse show" data-bs-parent="#offcanvasAccordion">
+          <div class="accordion-body p-0">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a href="meetings.html" class="text-decoration-none text-dark"><i class="bi bi-calendar-event me-2"></i>Meetings</a></li>
+              <li class="list-group-item"><a href="course.html" class="text-decoration-none text-dark"><i class="bi bi-journal-bookmark me-2"></i>Courses</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Career Tools -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCareer">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCareer">
+            🎓 Career Tools
+          </button>
+        </h2>
+        <div id="collapseCareer" class="accordion-collapse collapse" data-bs-parent="#offcanvasAccordion">
+          <div class="accordion-body p-0">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a href="internships.html" class="text-decoration-none text-dark"><i class="bi bi-mortarboard me-2"></i>Internships</a></li>
+              <li class="list-group-item"><a href="resume-builder.html" class="text-decoration-none text-dark"><i class="bi bi-file-earmark-person me-2"></i>Resume Builder</a></li>
+              <li class="list-group-item"><a href="career-guidance.html" class="text-decoration-none text-dark"><i class="bi bi-lightbulb me-2"></i>Career Guidance</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSupport">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSupport">
+            👥 Support
+          </button>
+        </h2>
+        <div id="collapseSupport" class="accordion-collapse collapse" data-bs-parent="#offcanvasAccordion">
+          <div class="accordion-body p-0">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a href="mentorship.html" class="text-decoration-none text-dark"><i class="bi bi-people me-2"></i>Mentorship</a></li>
+              <li class="list-group-item"><a href="saved-jobs.html" class="text-decoration-none text-dark"><i class="bi bi-star me-2"></i>Saved Jobs</a></li>
+              <li class="list-group-item"><a href="job-alerts.html" class="text-decoration-none text-dark"><i class="bi bi-envelope-paper me-2"></i>Job Alerts</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔔 Notifications -->
+    <div class="border-top px-3 py-2">
+      <a href="#" class="text-decoration-none text-dark d-block" data-bs-toggle="modal" data-bs-target="#notificationModal">
+        <i class="bi bi-bell me-2 text-primary"></i>Notifications
+      </a>
+    </div>
+
+    <!-- 🚪 Logout -->
+    <div class="border-top px-3 py-2">
+      <a href="logout.html" class="text-decoration-none text-dark d-block">
+        <i class="bi bi-box-arrow-right me-2 text-danger"></i>Logout
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container py-4">
+  <div class="profile-card d-flex flex-column flex-md-row align-items-center gap-4">
+    <img src="3.jpg" alt="Employer Profile" class="profile-image" />
+    <div>
+      <h4 class="mb-1">👤 Priya Sharma</h4>
+      <p class="mb-0 text-muted">Senior HR Manager at TechBridge | Chennai</p>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Employer Dashboard</h2>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJobModal">
+      + Post New Job
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Job Title</th>
+          <th>Location</th>
+          <th>Applicants</th>
+          <th>Posted On</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Frontend Developer</td>
+          <td>Chennai</td>
+          <td><span class="badge bg-info">12</span></td>
+          <td>2025-07-01</td>
+          <td><span class="badge bg-success">Active</span></td>
+          <td>
+            <button class="btn btn-sm btn-outline-secondary">Edit</button>
+            <button class="btn btn-sm btn-outline-danger">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>UI/UX Designer</td>
+          <td>Remote</td>
+          <td><span class="badge bg-info">5</span></td>
+          <td>2025-06-28</td>
+          <td><span class="badge bg-warning text-dark">Pending</span></td>
+          <td>
+            <button class="btn btn-sm btn-outline-secondary">Edit</button>
+            <button class="btn btn-sm btn-outline-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="addJobModal" tabindex="-1" aria-labelledby="addJobModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h5 class="modal-title" id="addJobModalLabel">Post New Job</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="jobTitle" class="form-label">Job Title</label>
+              <input type="text" class="form-control" id="jobTitle" required>
+            </div>
+            <div class="col-md-6">
+              <label for="jobLocation" class="form-label">Location</label>
+              <input type="text" class="form-control" id="jobLocation" required>
+            </div>
+            <div class="col-md-6">
+              <label for="jobType" class="form-label">Job Type</label>
+              <select class="form-select" id="jobType">
+                <option selected disabled>Select</option>
+                <option>Full Time</option>
+                <option>Part Time</option>
+                <option>Internship</option>
+                <option>Remote</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="jobStatus" class="form-label">Status</label>
+              <select class="form-select" id="jobStatus">
+                <option>Active</option>
+                <option>Pending</option>
+                <option>Closed</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="jobDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="jobDescription" rows="4" required></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Post Job</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- ✅ Modal Popup for Notifications -->
+<div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="notificationModalLabel">🔔 Notifications</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        No notifications received yet.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="text-white text-center py-3 w-100">
+  <p class="mb-0">&copy; 2025 WORQLY. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
